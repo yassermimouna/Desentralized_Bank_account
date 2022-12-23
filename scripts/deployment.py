@@ -5,8 +5,9 @@ from scripts.pay_getPayed import (
     LOCAL_BLOCKCHAIN_ENVIRONMENTS,
 )
 
+
 def deploy_desentralizedBank(): 
-    compte = get_account()
+    compte = get_account_info()
     if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
         price_feed_address = config["networks"][network.show_active()][ "ethirium_to_usd_price" ]
     else:
