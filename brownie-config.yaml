@@ -1,5 +1,4 @@
 dependencies:
-  # - <organization/repo>@<version>
   - smartcontractkit/chainlink-brownie-contracts@1.1.1
 compiler:
   solc:
@@ -16,7 +15,7 @@ networks:
   development:
     verify: False
   ganache-local:
-    verify: False
+    verify: True
 wallets:
-  from_key: ${PRIVATE_KEY}
+  from_key: ${MY_PRIVATE_KEY}
   

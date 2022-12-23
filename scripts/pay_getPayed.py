@@ -8,7 +8,7 @@ DECIMALS = 18
 STARTING_VALUE = 2000
 
 
-def get_account():
+def get_account_info():
     if (
         network.show_active() in LOCAL_BLOCKCHAIN_ENVIRONMENTS
         or network.show_active() in FORKED_LOCAL_ENVIRONMENTS
