@@ -1,16 +1,14 @@
 from brownie import FundMe, MockV3Aggregator, network, config
-from scripts.helpful_scripts import (
+from scripts.pay_getPayed import (
+    get_account_info,
     deploy_mocks,
-    get_account,
     LOCAL_BLOCKCHAIN_ENVIRONMENTS,
 )
 
-def deploy_desentralizedBank():  //deploy_fund_me
+def deploy_desentralizedBank(): 
     compte = get_account()
     if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
-        price_feed_address = config["networks"][network.show_active()][
-            "ethirium_to_usd_price"
-        ]
+        price_feed_address = config["networks"][network.show_active()][ "ethirium_to_usd_price" ]
     else:
         deploy_mocks()
         price_feed_address = MockV3Aggregator[-1].address
