@@ -10,7 +10,7 @@ def deploy_desentralizedBank():
     compte = get_account_info()
    """  check for active networks """
     if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
-        price_feed_address = config["networks"][network.show_active()][ "ethirium_to_usd_price" ]
+        price_feed_address = config["networks"][network.show_active()][ "etherium_to_usd_price" ]
     else:
         deploy_mocks()
         price_feed_address = MockV3Aggregator[-1].address

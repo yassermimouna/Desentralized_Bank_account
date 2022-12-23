@@ -18,9 +18,8 @@ contract FundMe {
         owner = msg.sender;
     }
 
-    //minimum 50$
     function fund() public payable {
-        uint256 minimumUsd = 1 * 10**18;
+        uint256 minimumUsd = 50 * 10 ** 18;
         require(
             getConversionRate(msg.value) >= minimumUsd,
             "you need to spend more eth"
@@ -50,7 +49,7 @@ contract FundMe {
 
     function getEntranceFee() public view returns (uint256) {
         //minimum usd
-        uint256 minimumUSD = 1 * 10**18;
+        uint256 minimumUSD = 51 * 10**18;
         uint256 price = getPrice();
         uint256 precision = 1 * 10**18;
         return (minimumUSD * precision) / price;
@@ -61,6 +60,8 @@ contract FundMe {
         _;
     }
 
+    // onlyOwner modifer will first check the condition inside it 
+    // if true, withdraw function will be executed 
     function withdrow() public payable onlyOwner {
         msg.sender.transfer(address(this).balance);
         for (
