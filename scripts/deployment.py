@@ -19,10 +19,8 @@ def deploy_desentralizedBank():
         {"from": compte},
         publish_source=config["networks"][network.show_active()].get("verify"),
     )
-
     printf("Contract deployed successfuly")
     return fund_me
-
 
 def main():
     deploy_desentralizedBank()
