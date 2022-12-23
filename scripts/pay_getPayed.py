@@ -37,7 +37,7 @@ def Deposit():
     account = get_account_info()
     starting_price = fund_me.getEntranceFee() + 50
     printf(starting_price)
-    printf("Actual price is {starting_price}")
+    printf("Actual price is : {starting_price}")
     fund_me.fund({"from": account, "": starting_price})
 
 def main():
