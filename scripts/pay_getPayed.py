@@ -1,12 +1,11 @@
 from brownie import network, accounts, config, MockV3Aggregator , FundMe
 from web3 import Web3
 
-FORKED_LOCAL_ENVIRONMENTS = ["mainnet-fork-dev", "mainnet-fork"]
-LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["development", "ganache-local"]
+FORKED_LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["mainnet-fork"]
+LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["development", "ganache-local", "ganache-local2"]
 
-DECIMALS = 18
-STARTING_VALUE = 2000
-
+DECIMALS = 8
+STARTING_PRICE = 200000000000
 
 def get_account_info():
     if (
@@ -19,11 +18,11 @@ def get_account_info():
 
 
 def deploy_mocks():
-    print(f"the active netwokr is {network.show_active()}")
+    printf("the active netwokr is {network.show_active()}")
     print("deploying mock ....")
     if len(MockV3Aggregator) <= 0:
         MockV3Aggregator.deploy(
-            DECIMALS, Web3.toWei(STARTING_VALUE, "ether"), {"from": get_account()}
+            DECIMALS, Web3.toWei(STARTING_PRICE, "ether"), {"from": get_account_info()}
         )
     print("mocks deployed")
 
