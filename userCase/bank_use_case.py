@@ -1,12 +1,8 @@
-from scripts.deploy_desentralizedBank import fund
-from scripts.pay_getPayed import (
-    get_account_info,
-    LOCAL_BLOCKCHAIN_ENVIRONMENTS,
-    FORKED_LOCAL_ENVIRONMENTS,
-)
 from scripts.deployment import deploy_desentralizedBank
 from brownie import network, accounts, exceptions
-import pytest
+from scripts.deploy_desentralizedBank import fund
+from scripts.pay_getPayed import get_account_info
+
 
 
 def test_my_bank():
