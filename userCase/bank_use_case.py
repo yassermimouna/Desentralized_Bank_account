@@ -3,8 +3,6 @@ from brownie import network, accounts, exceptions
 from scripts.deploy_desentralizedBank import fund
 from scripts.pay_getPayed import get_account_info
 
-
-
 def test_my_bank():
     account = get_account_info()
     fund_me = deploy_desentralizedBank()
